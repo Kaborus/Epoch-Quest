@@ -13,10 +13,15 @@ def screen():
     screen = pygame.display.set_mode((window_width, window_height))
     pygame.display.set_caption("Epoch Quest")
 
+    clock = pygame.time.Clock()
+    fps = 60
+
     circle_x = window_width // 2
     circle_y = window_height // 2
 
-    movement_speed = 0.25
+    delta_time = clock.tick(fps) / 1000.0
+
+    movement_speed = 25 * delta_time
 
     # Game loop
     running = True
