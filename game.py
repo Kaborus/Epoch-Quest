@@ -16,6 +16,8 @@ def screen():
     circle_x = window_width // 2
     circle_y = window_height // 2
 
+    movement_speed = 0.25
+
     # Game loop
     running = True
     while running:
@@ -31,13 +33,13 @@ def screen():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_w]:
-            circle_y -= 1
+            circle_y -= movement_speed
         if keys[pygame.K_s]:
-            circle_y += 1
+            circle_y += movement_speed
         if keys[pygame.K_a]:
-            circle_x -= 1
+            circle_x -= movement_speed
         if keys[pygame.K_d]:
-            circle_x += 1
+            circle_x += movement_speed
 
         # Draw graphics
         screen.fill((255, 255, 255))  # Fill the screen with white
