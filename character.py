@@ -1,5 +1,6 @@
 import pygame
 
+
 def create(screen, window_width, window_height):
     # Draw a blue circle in the center of the screen
     circle_color = (0, 0, 255)  # Blue color (R, G, B)
