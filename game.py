@@ -1,5 +1,6 @@
 import pygame
 import sys
+from character import create
 
 
 def screen():
@@ -25,6 +26,8 @@ def screen():
         # Draw graphics
         screen.fill((255, 255, 255))  # Fill the screen with white
         # Additional drawing can be done here
+
+        create(screen, 200,200)
 
         pygame.display.flip()  # Update the display
 
