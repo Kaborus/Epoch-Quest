@@ -21,7 +21,8 @@ def screen():
 
     delta_time = clock.tick(fps) / 1000.0
 
-    movement_speed = 25 * delta_time
+    movement_speed = 12.5 * delta_time
+
 
     # Game loop
     running = True
@@ -37,14 +38,18 @@ def screen():
 
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_w]:
-            circle_y -= movement_speed
-        if keys[pygame.K_s]:
-            circle_y += movement_speed
-        if keys[pygame.K_a]:
-            circle_x -= movement_speed
-        if keys[pygame.K_d]:
-            circle_x += movement_speed
+        if (circle_y > 20):
+            if keys[pygame.K_w]:
+                circle_y -= movement_speed
+        if (circle_y < window_height-20):
+            if keys[pygame.K_s]:
+                circle_y += movement_speed
+        if (circle_x > 20):
+            if keys[pygame.K_a]:
+                circle_x -= movement_speed
+        if (circle_x < window_width-20):
+            if keys[pygame.K_d]:
+                circle_x += movement_speed
 
         # Draw graphics
         screen.fill((255, 255, 255))  # Fill the screen with white
