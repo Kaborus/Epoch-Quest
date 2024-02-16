@@ -1,7 +1,3 @@
+from game import screen
 
-
-print("Whanos ga komen")
-
-test = 5
-
-print(test)
+screen()
