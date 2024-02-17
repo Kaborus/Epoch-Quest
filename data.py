@@ -11,7 +11,9 @@ center = (window_width / 2, window_height / 2)
 
 size = 64
 
-player_size = size, size
+sizeHor, sizeVer = 40, 100
+
+player_size = sizeHor, sizeVer
 
 movement_speed = 5
 
@@ -46,3 +48,9 @@ world_map = [
     ['x', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'x'],
     ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
 ]
+
+# Game states
+MAIN_MENU = 0
+PLAYING = 1
+OPTIONS = 2
+PAUSED = 3
