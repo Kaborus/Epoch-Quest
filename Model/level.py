@@ -1,7 +1,7 @@
 import pygame
 from data import *
 from tile import Tile
-from player import Player
+from Model.player import Player
 
 
 class Level:

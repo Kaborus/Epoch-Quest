@@ -1,8 +1,6 @@
-import pygame
 import sys
 
-from data import *
-from functions import *
+from Controller.functions import *
 
 # Font
 pygame.font.init()

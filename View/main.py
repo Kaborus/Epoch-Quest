@@ -1,15 +1,13 @@
-import pygame
-import sys
-from level import Level
-import data
+from Model.level import Level
+from View.mainMenu import *
 
 
 class Game:
     def __init__(self):
         pygame.init()
 
-        self.screen = pygame.display.set_mode(data.screen_size)
-        pygame.display.set_caption(data.name)
+        self.screen = pygame.display.set_mode(screen_size)
+        pygame.display.set_caption(game_name)
         self.clock = pygame.time.Clock()
 
         self.level = Level()
@@ -21,19 +19,17 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-            self.screen.fill(data.white)
+            self.screen.fill(white)
             self.level.run()
             pygame.display.update()
-            self.clock.tick(data.fps)
+            self.clock.tick(fps)
 
 
 if __name__ == "__main__":
-    game = Game()
-    game.run()
+    main
+    #game = Game()
+    #game.run()
 
-from game import game
-from data import *
-from mainMenu import *
 
 global current_state
 main_menu = main_menu()

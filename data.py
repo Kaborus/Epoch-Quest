@@ -1,4 +1,4 @@
-name = "Epoch Quest"
+game_name = "Epoch Quest"
 
 fps = 60
 
