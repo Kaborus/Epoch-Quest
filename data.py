@@ -1,5 +1,5 @@
-window_height = 600
-window_width = 800
+window_height = 720
+window_width = 1280
 
 screen_size = window_width, window_height
 
@@ -7,7 +7,9 @@ center = (window_width / 2, window_height / 2)
 
 size = 50
 
-player_size = size, size
+sizeHor, sizeVer = 40, 100
+
+player_size = sizeHor, sizeVer
 
 movement_speed = 5
 
@@ -17,3 +19,9 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 yellow = (255, 255, 0)
+
+# Game states
+MAIN_MENU = 0
+PLAYING = 1
+OPTIONS = 2
+PAUSED = 3

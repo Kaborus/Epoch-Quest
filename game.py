@@ -3,6 +3,7 @@ import sys
 from camera import Camera
 from player import Player
 import data
+from mainMenu import main_menu
 
 
 def game():
@@ -23,6 +24,8 @@ def game():
     # Create camera object
     camera = Camera()
 
+    print("Starting the game...")
+
     # Game loop
     running = True
     while running:
@@ -32,8 +35,12 @@ def game():
             if event.type == pygame.QUIT:
                 running = False
 
+        screen.fill('white')
+        pygame.display.flip()
+
         # Get the keys currently pressed
         keys = pygame.key.get_pressed()
+
 
         # Update player position based on key presses
         player.update(keys)
