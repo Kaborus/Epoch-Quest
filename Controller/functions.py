@@ -1,5 +1,5 @@
 import pygame
-from data import *
+from Controller.data import *
 
 screen = pygame.display.set_mode(screen_size)
 

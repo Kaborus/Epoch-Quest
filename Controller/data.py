@@ -1,5 +1,8 @@
 game_name = "Epoch Quest"
 
+player_image = 'Images/player_sprite.png'
+tile_image = 'Images/epoch_sprite.png'
+
 fps = 60
 
 window_height = 720
