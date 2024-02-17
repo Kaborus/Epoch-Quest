@@ -14,6 +14,8 @@ class Game:
 
         self.level = Level()
 
+        self.run()
+
     def run(self):
         while True:
             for event in pygame.event.get():

@@ -1,23 +1,19 @@
 from View.game import Game
+from View.main_menu import Main_menu
+from Controller.data import PLAYING, OPTIONS
 
 game = Game()
-game.run()
+menu = Main_menu()
 
 
-
-
-# global current_state
-# main_menu = main_menu()
-# game = game()
-#
 # while True:
-#     if current_state == MAIN_MENU:
-#         new_state = main_menu.run()
-#         if new_state == PLAYING:
-#             current_state = PLAYING
-#     elif current_state == PLAYING:
-#         game.run()
-#     elif current_state == OPTIONS:
-#         pass
-#     elif current_state == PAUSED:
+#     menu.handle_events()  # Handle user input
+#     menu.update()  # Update the state of the menu based on input
+#
+#     if menu.state == PLAYING:
+#         print("test")
+#         game = Game()
+#
+#     elif menu.state == OPTIONS:
+#         # Handle options menu
 #         pass

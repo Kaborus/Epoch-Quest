@@ -1,7 +1,13 @@
+import pygame
+
 game_name = "Epoch Quest"
 
 player_image = 'Images/player_sprite.png'
 tile_image = 'Images/epoch_sprite.png'
+
+# Font
+pygame.font.init()
+font = pygame.font.SysFont('Comic Sans MS', 30)
 
 fps = 60
 
@@ -11,6 +17,8 @@ window_width = 1280
 screen_size = window_width, window_height
 
 center = (window_width / 2, window_height / 2)
+
+screen = pygame.display.set_mode(screen_size)
 
 size = 64
 

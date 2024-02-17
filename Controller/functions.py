@@ -1,8 +1,6 @@
 import pygame
 from Controller.data import *
 
-screen = pygame.display.set_mode(screen_size)
-
 # Draw text
 def draw_text(text, font, color, x, y):
     text_surface = font.render(text, True, color)
