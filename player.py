@@ -1,26 +1,38 @@
 import pygame
-import data
-
-movement_speed = data.movement_speed
-player_size = data.player_size
-center = data.center
+from data import *
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self):
-        super().__init__()
-        self.image = pygame.image.load("azarian.png").convert()
-        self.image = pygame.transform.scale(self.image, player_size)
-        self.rect = self.image.get_rect()
-        self.rect.center = center
+    def __init__(self, pos, groups):
+        super().__init__(groups)
+        self.image = pygame.image.load('epoch_player_sprite.png').convert_alpha()
+        self.rect = self.image.get_rect(topleft=pos)
 
-    def update(self, pressed_keys):
-        # Update the player's position based on user input
-        if pressed_keys[pygame.K_w]:
-            self.rect.y -= movement_speed
-        if pressed_keys[pygame.K_s]:
-            self.rect.y += movement_speed
-        if pressed_keys[pygame.K_a]:
-            self.rect.x -= movement_speed
-        if pressed_keys[pygame.K_d]:
-            self.rect.x += movement_speed
+        self.direction = pygame.math.Vector2()
+        self.speed = 5
+
+    def input(self):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w]:
+            self.direction.y = -1
+        elif keys[pygame.K_s]:
+            self.direction.y = 1
+        else:
+            self.direction.y = 0
+
+        if keys[pygame.K_a]:
+            self.direction.x = -1
+        elif keys[pygame.K_d]:
+            self.direction.x = 1
+        else:
+            self.direction.x = 0
+
+    def move(self, speed):
+        if self.direction.magnitude() != 0:
+            self.direction = self.direction.normalize()
+        self.rect.center += self.direction * speed
+
+    def update(self):
+        self.input()
+        self.move(self.speed)
