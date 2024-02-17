@@ -1,28 +1,27 @@
 import pygame
 import sys
-from character import create
+from camera import Camera
+from player import Player
+import data
 
 
-def screen():
+def game():
     # Initialize Pygame
     pygame.init()
 
-    # Set up the game window
-    window_width = 800
-    window_height = 600
-    screen = pygame.display.set_mode((window_width, window_height))
+    screen_size = data.screen_size
+
+    screen = pygame.display.set_mode(screen_size)
     pygame.display.set_caption("Epoch Quest")
 
     clock = pygame.time.Clock()
-    fps = 60
 
-    circle_x = window_width // 2
-    circle_y = window_height // 2
+    background = data.white
 
-    delta_time = clock.tick(fps) / 1000.0
+    player = Player()
 
-    movement_speed = 12.5 * delta_time
-
+    # Create camera object
+    camera = Camera()
 
     # Game loop
     running = True
@@ -33,32 +32,25 @@ def screen():
             if event.type == pygame.QUIT:
                 running = False
 
-
-        # Update game state
-
+        # Get the keys currently pressed
         keys = pygame.key.get_pressed()
 
-        if (circle_y > 20):
-            if keys[pygame.K_w]:
-                circle_y -= movement_speed
-        if (circle_y < window_height-20):
-            if keys[pygame.K_s]:
-                circle_y += movement_speed
-        if (circle_x > 20):
-            if keys[pygame.K_a]:
-                circle_x -= movement_speed
-        if (circle_x < window_width-20):
-            if keys[pygame.K_d]:
-                circle_x += movement_speed
+        # Update player position based on key presses
+        player.update(keys)
 
-        # Draw graphics
-        screen.fill((255, 255, 255))  # Fill the screen with white
-        create(screen, circle_x, circle_y)
+        # Update camera position to follow the player
+        camera.update(player)
 
-        # Additional drawing can be done here
+        # Clear the screen
+        screen.fill(background)
 
-        pygame.display.flip()  # Update the display
+        pygame.draw.circle(screen, data.red, (100, 100), 50)
 
-    # Quit Pygame
+        # Render player and other game objects with camera offset
+        screen.blit(player.image, camera.apply(player))
+
+        pygame.display.flip()
+        clock.tick(60)
+
     pygame.quit()
     sys.exit()

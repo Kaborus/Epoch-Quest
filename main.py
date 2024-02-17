@@ -1,3 +1,3 @@
-from game import screen
+from game import game
 
-screen()
+game()
