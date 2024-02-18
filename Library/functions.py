@@ -1,4 +1,5 @@
-from data import *
+from Library.data import *
+
 
 # Draw text
 def draw_text(text, font, color, x, y):

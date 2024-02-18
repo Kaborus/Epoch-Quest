@@ -1,4 +1,4 @@
-from data import *
+from Library.data import *
 
 
 class Tile(pygame.sprite.Sprite):

@@ -1,6 +1,8 @@
-from data import *
+import sys
+from Library.data import *
 from Model.tile import Tile
 from Model.player import Player
+from Model.camera import Camera
 
 
 class Level:
@@ -11,7 +13,7 @@ class Level:
 
         self.display_surface = pygame.display.get_surface()
 
-        self.visible_sprites = YSortCameraGroup()
+        self.visible_sprites = Camera()
         self.obstacle_sprites = pygame.sprite.Group()
 
         self.create_map()
@@ -27,23 +29,14 @@ class Level:
                     self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
 
-
-class YSortCameraGroup(pygame.sprite.Group):
-    def __init__(self):
-        super().__init__()
-        self.display_surface = pygame.display.get_surface()
-        self.half_width = self.display_surface.get_size()[0] // 2
-        self.half_height = self.display_surface.get_size()[1] // 2
-        self.offset = pygame.math.Vector2()
-
-    def custom_draw(self, player):
-        self.offset.x = player.rect.centerx - self.half_width
-        self.offset.y = player.rect.centery - self.half_height
-
-        # for sprite in self.sprites():
-        for sprite in sorted(self.sprites(), key=lambda sprite: sprite.rect.centery):
-            offset_pos = sprite.rect.topleft - self.offset
-            self.display_surface.blit(sprite.image, offset_pos)
+        # temporary
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_ESCAPE]:
+            self.game_state_manager.set_state('main_menu')
