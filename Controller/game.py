@@ -1,6 +1,7 @@
 import sys
 import pygame
 
+from Controller.game_state_manager import GameStateManager
 from View.main_menu import MainMenu
 from View.level import Level
 from data import *
@@ -32,20 +33,7 @@ class Game:
                     sys.exit()
             self.states[self.game_state_manager.get_state()].run()
 
-
             pygame.display.update()
             self.clock.tick(fps)
 
             screen.fill('white')
-
-
-
-class GameStateManager:
-    def __init__(self, current_state):
-        self.current_state = current_state
-
-    def get_state(self):
-        return self.current_state
-
-    def set_state(self, state):
-        self.current_state = state

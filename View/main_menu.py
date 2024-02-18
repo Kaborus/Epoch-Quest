@@ -1,5 +1,6 @@
 import sys
 from functions import *
+from Controller.game_state_manager import GameStateManager
 
 
 class MainMenu:
@@ -17,7 +18,8 @@ class MainMenu:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 if self.play_button.collidepoint(mouse_pos):
-                    pass
+                    print("test")
+                    self.game_state_manager.set_state('level')
                 elif self.options_button.collidepoint(mouse_pos):
                     pass
                 elif self.quit_button.collidepoint(mouse_pos):
@@ -34,7 +36,6 @@ class MainMenu:
         pygame.draw.rect(screen, 'gray', self.quit_button)
         draw_text("Quit", font, 'black', self.quit_button.centerx, self.quit_button.centery)
         pygame.display.flip()
-
 
     def run(self):
         self.handle_events()

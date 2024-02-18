@@ -27,10 +27,6 @@ class Level:
                     self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_t]:
-            print("start")
-            self.game_state_manager.set_state('level')
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
 
