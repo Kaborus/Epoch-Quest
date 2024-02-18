@@ -1,5 +1,4 @@
-import pygame
-from Controller.data import *
+from data import *
 
 
 class Tile(pygame.sprite.Sprite):

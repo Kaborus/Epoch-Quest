@@ -1,11 +1,13 @@
-import pygame
-from Controller.data import *
+from data import *
 from Model.tile import Tile
 from Model.player import Player
 
 
 class Level:
-    def __init__(self):
+    def __init__(self, display, game_state_manager):
+
+        self.display = display
+        self.game_state_manager = game_state_manager
 
         self.display_surface = pygame.display.get_surface()
 
@@ -25,6 +27,10 @@ class Level:
                     self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
 
     def run(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_t]:
+            print("start")
+            self.game_state_manager.set_state('level')
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
 

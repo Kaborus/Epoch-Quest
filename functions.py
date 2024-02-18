@@ -1,5 +1,4 @@
-import pygame
-from Controller.data import *
+from data import *
 
 # Draw text
 def draw_text(text, font, color, x, y):

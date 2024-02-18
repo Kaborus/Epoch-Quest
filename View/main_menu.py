@@ -1,30 +1,25 @@
 import sys
-import pygame
-from Controller.data import *
-from Controller.functions import *
+from functions import *
 
 
-class Main_menu():
-    def __init__(self):
-        self.state = MAIN_MENU
+class MainMenu:
+    def __init__(self, display, game_state_manager):
+
+        self.display = display
+        self.game_state_manager = game_state_manager
+
         self.play_button = pygame.Rect(300, 200, 200, 50)
         self.options_button = pygame.Rect(300, 300, 200, 50)
         self.quit_button = pygame.Rect(300, 400, 200, 50)
-        self.run()
-        self.get_selected_option()
 
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 if self.play_button.collidepoint(mouse_pos):
-                    print("Start the game!")
-                    state = PLAYING
-                    print(self.state)
+                    pass
                 elif self.options_button.collidepoint(mouse_pos):
-                    print("Options menu")
-                    self.state = OPTIONS
-                    print(self.state)
+                    pass
                 elif self.quit_button.collidepoint(mouse_pos):
                     pygame.quit()
                     sys.exit()
@@ -40,13 +35,12 @@ class Main_menu():
         draw_text("Quit", font, 'black', self.quit_button.centerx, self.quit_button.centery)
         pygame.display.flip()
 
-    def get_selected_option(self):
-        # Return the selected option
-        return self.state
 
     def run(self):
-        while True:
-            self.handle_events()
-            self.draw_menu()
+        self.handle_events()
+        self.draw_menu()
+        keys=pygame.key.get_pressed()
+        if keys[pygame.K_e]:
+            self.game_state_manager.set_state('level')
 
     pygame.display.flip()

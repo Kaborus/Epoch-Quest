@@ -1,5 +1,6 @@
 import pygame
-from Controller.data import *
+
+from data import *
 
 
 class Player(pygame.sprite.Sprite):
@@ -30,7 +31,6 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 1
         else:
             self.direction.x = 0
-
     def move(self, speed):
         if self.direction.magnitude() != 0:
             self.direction = self.direction.normalize()
