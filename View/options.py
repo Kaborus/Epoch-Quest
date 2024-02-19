@@ -1,4 +1,3 @@
-import sys
 from Library.functions import *
 
 
@@ -13,7 +12,7 @@ class Options:
 
     def draw_menu(self):
 
-        draw_text(game_name, font, 'black', window_width // 2, 100)
+        draw_text("Options", font, 'black', window_width // 2, 100)
 
         pygame.draw.rect(screen, 'gray', self.video_button)
         draw_text("Video", font, 'black', self.video_button.centerx, self.video_button.centery)

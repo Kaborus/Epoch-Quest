@@ -20,7 +20,7 @@ class Game:
         self.level = Level(self.screen, self.game_state_manager)
         self.options = Options(self.screen, self.game_state_manager)
 
-        self.states = {'main_menu': self.main_menu, 'level': self.level, 'options':self.options}
+        self.states = {'main_menu': self.main_menu, 'level': self.level, 'options': self.options}
 
         self.run()
 
