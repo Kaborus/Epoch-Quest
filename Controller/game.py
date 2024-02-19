@@ -1,6 +1,7 @@
 from Controller.game_state_manager import GameStateManager
 from View.main_menu import MainMenu
 from View.level import Level
+from View.options import Options
 from Library.data import *
 
 
@@ -17,8 +18,9 @@ class Game:
         self.game_state_manager = GameStateManager('main_menu')
         self.main_menu = MainMenu(self.screen, self.game_state_manager)
         self.level = Level(self.screen, self.game_state_manager)
+        self.options = Options(self.screen, self.game_state_manager)
 
-        self.states = {'main_menu': self.main_menu, 'level': self.level}
+        self.states = {'main_menu': self.main_menu, 'level': self.level, 'options':self.options}
 
         self.run()
 

@@ -32,7 +32,7 @@ class MainMenu:
                 if self.play_button.collidepoint(mouse_pos):
                     self.game_state_manager.set_state('level')
                 elif self.options_button.collidepoint(mouse_pos):
-                    pass
+                    self.game_state_manager.set_state('options')
                 elif self.quit_button.collidepoint(mouse_pos):
                     pygame.quit()
                     sys.exit()
