@@ -12,7 +12,6 @@ class MainMenu:
         self.quit_button = pygame.Rect(button_position_x, 400, button_width, button_height)
 
     def draw_menu(self):
-
         draw_text(game_name, font, 'black', window_width // 2, 100)
 
         pygame.draw.rect(screen, 'gray', self.play_button)
